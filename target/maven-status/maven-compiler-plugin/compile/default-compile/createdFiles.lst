@@ -1,5 +1,0 @@
-br/edu/fjn/agenda/domain/contact/Contact.class
-br/edu/fjn/agenda/controllers/ContactController.class
-br/edu/fjn/agenda/controllers/LoginController.class
-br/edu/fjn/agenda/components/UserSession.class
-br/edu/fjn/agenda/domain/user/User.class
