@@ -1,5 +1,5 @@
 # agenda-app
 
-Sample VRaptor Application. 
+Sample [VRaptor - MVC Java Framework](http://www.vraptor.org) Application. 
 
 
