@@ -12,6 +12,12 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.fjn.agenda.annotations.Private;
 import br.edu.fjn.agenda.domain.contact.Contact;
+import br.edu.fjn.agenda.domain.contact.ContactRepository;
+import br.edu.fjn.agenda.infrastructure.ContactRepositoryLocalImpl;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Vector;
 import javax.inject.Inject;
 
 /**
@@ -26,6 +32,8 @@ public class ContactController {
     @Inject
     private Result result;
     
+    @Inject
+    private ContactRepository contactRepository;
     
     @Get("new")
     public void newContact(){
@@ -35,14 +43,11 @@ public class ContactController {
 
     @Post("save")
     public void save(Contact contact){
-        //request.getParameter("name");
-        System.out.println("Contact's name " + contact.getPhoneNumber());
-         
+        contactRepository.store(contact);
     }
     
-    //public
     @Get("list")
     public void list(){
-        
+        result.include("contactList",contactRepository.list());
     }
 }

@@ -10,7 +10,6 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
-import br.edu.fjn.agenda.annotations.Private;
 import br.edu.fjn.agenda.components.UserSession;
 import br.edu.fjn.agenda.domain.user.User;
 import javax.inject.Inject;
@@ -42,7 +41,7 @@ public class LoginController {
            User user = new User();
            user.setUserName(userName);
            userSession.setUser(user);
-           result.redirectTo(this).loginPage();
+           result.redirectTo(HomeController.class).home();
         }else{
             result.include("msgLoginError", "Usuário ou senha inválido!");
             result.redirectTo(this).loginPage();
