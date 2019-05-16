@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
+import br.edu.fjn.agenda.annotations.Private;
 import br.edu.fjn.agenda.components.UserSession;
 import br.edu.fjn.agenda.domain.user.User;
 import javax.inject.Inject;
