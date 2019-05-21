@@ -47,5 +47,24 @@ public class ContactRepositoryLocalImpl implements ContactRepository{
     public List<Contact> list() {
         return contactList;
     }
+
+    @Override
+    public Contact findByCode(String code) {
+        Contact result = null;  
+        for(Contact contact: contactList){
+            if (contact.getCode().equalsIgnoreCase(code)){
+               result = contact;
+               break;
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public Contact update(Contact contactToUpdate) {
+        int positionUpdate = contactList.indexOf(contactToUpdate);
+        System.out.println("posit" + positionUpdate);
+        return contactList.set(positionUpdate, contactToUpdate);
+    }
     
 }

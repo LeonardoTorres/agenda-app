@@ -4,22 +4,10 @@
     Author     : leonardo
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>PÃ¡gina Inicial</h1>
-        <ul>
-            <li>
-                <a href="contact/new">Novo contato</a> 
-            </li>
-            <li>
-                <a href="contact/list">Listar contatos</a>
-            </li>
-        </ul>
-    </body>
-</html>
+<jsp:include page="/WEB-INF/jsp/template/header.jsp">
+    <jsp:param  name="title" value="Página Inicial"/>
+</jsp:include>
+
+<h1 class="text-center">Página Inicial</h1>
+
+<jsp:include page="/WEB-INF/jsp/template/footer.jsp"/>

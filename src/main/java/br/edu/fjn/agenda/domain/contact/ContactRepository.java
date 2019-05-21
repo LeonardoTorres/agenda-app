@@ -14,6 +14,8 @@ import java.util.List;
 public interface ContactRepository {
     
     Contact store(Contact contact);
+    Contact update(Contact contact);
+    Contact findByCode(String code);
     Contact findByEmail(String email);
     List<Contact> list();
     

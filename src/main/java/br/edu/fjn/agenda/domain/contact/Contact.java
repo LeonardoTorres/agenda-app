@@ -5,6 +5,9 @@
  */
 package br.edu.fjn.agenda.domain.contact;
 
+import java.util.Objects;
+import java.util.UUID;
+
 /**
  *
  * @author leonardo
@@ -12,10 +15,17 @@ package br.edu.fjn.agenda.domain.contact;
 
 public class Contact {
     
+    private String code; 
     private String name;
     private String email;
     private String phoneNumber;
 
+    public Contact() {
+       this.code= UUID.randomUUID().toString();
+    }
+
+    
+    
     public String getName() {
         return name;
     }
@@ -39,7 +49,42 @@ public class Contact {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.code);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contact other = (Contact) obj;
+        if (!Objects.equals(this.code, other.code)) {
+            return false;
+        }
+        return true;
+    }
+
+   
     
     
 }
