@@ -21,11 +21,9 @@ public class Contact {
     private String phoneNumber;
 
     public Contact() {
-       this.code= UUID.randomUUID().toString();
+        
     }
 
-    
-    
     public String getName() {
         return name;
     }
@@ -51,7 +49,7 @@ public class Contact {
     }
 
     public String getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(String code) {

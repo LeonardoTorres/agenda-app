@@ -9,6 +9,7 @@ import br.edu.fjn.agenda.domain.contact.Contact;
 import br.edu.fjn.agenda.domain.contact.ContactRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.enterprise.context.ApplicationScoped;
 
 /**
@@ -27,13 +28,14 @@ public class ContactRepositoryLocalImpl implements ContactRepository{
          contact.setName("Contact Default");
          contact.setEmail("email default");
          contact.setPhoneNumber("12412 default");
-         contactList.add(contact);
+         this.store(contact);
     }
     
     
     
     @Override
     public Contact store(Contact contact) {
+        contact.setCode(UUID.randomUUID().toString());
         contactList.add(contact);
         return contact; 
     }
@@ -65,6 +67,12 @@ public class ContactRepositoryLocalImpl implements ContactRepository{
         int positionUpdate = contactList.indexOf(contactToUpdate);
         System.out.println("posit" + positionUpdate);
         return contactList.set(positionUpdate, contactToUpdate);
+    }
+
+    @Override
+    public boolean remove(String code) {
+       Contact contactToRemove = findByCode(code);
+       return contactList.remove(contactToRemove);
     }
     
 }

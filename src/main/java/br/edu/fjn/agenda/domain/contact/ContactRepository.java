@@ -17,6 +17,7 @@ public interface ContactRepository {
     Contact update(Contact contact);
     Contact findByCode(String code);
     Contact findByEmail(String email);
+    boolean remove(String code);
     List<Contact> list();
     
 }

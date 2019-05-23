@@ -60,4 +60,10 @@ public class ContactController {
     public void list(){
         result.include("contactList",contactRepository.list());
     }
+    
+    @Post("remove")
+    public void remove(String code){
+       contactRepository.remove(code); 
+       result.redirectTo(this).list();
+    }
 }
